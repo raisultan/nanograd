@@ -16,7 +16,7 @@ class Value:
         # derivative of the output with respect to current value, yet no effect
         self.grad = 0.0
 
-    def __repr__(self) -> str:
+    def __repr__(self) -> int:
         return f'Value(data={self.data})'
 
     def __add__(self, other: Value | float) -> Value:
