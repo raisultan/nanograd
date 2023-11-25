@@ -86,6 +86,15 @@ class Value:
 
         return out
 
+    def relu(self) -> Value:
+        """ReLU(x)=max(0,x)."""
+        out = Value(0 if self.data < 0 else self.data, (self,), 'ReLU')
+
+        def _backward() -> None: self.grad += (out.data > 0) * out.grad
+
+        out._backward = _backward
+        return out
+
     def backward(self) -> None:
         """Runs backward pass."""
         topo = []
