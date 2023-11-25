@@ -1,5 +1,5 @@
 import torch
-from micrograd.value import Value
+from nanograd.value import Value
 
 
 def test_sanity_check():

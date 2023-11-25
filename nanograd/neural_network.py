@@ -1,7 +1,7 @@
 import random
 from abc import ABC, abstractmethod
 
-from micrograd.value import Value
+from nanograd.value import Value
 
 
 class Module(ABC):
