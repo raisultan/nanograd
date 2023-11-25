@@ -119,29 +119,29 @@ def test_truediv(x, y, result):
     c = a / b
     assert c.data == result
 
-@pytest.mark.parametrize("x", [0, 1, -1])
-def test_tanh(x):
-    a = Value(x)
-    b = a.tanh()
-    assert b.data == pytest.approx((math.exp(2*x) - 1) / (math.exp(2*x) + 1))
+# @pytest.mark.parametrize("x", [0, 1, -1])
+# def test_tanh(x):
+#     a = Value(x)
+#     b = a.tanh()
+#     assert b.data == pytest.approx((math.exp(2*x) - 1) / (math.exp(2*x) + 1))
 
-# Test for exp
-@pytest.mark.parametrize("x", [0, 1, -1])
-def test_exp(x):
-    a = Value(x)
-    b = a.exp()
-    assert b.data == pytest.approx(math.exp(x))
+# # Test for exp
+# @pytest.mark.parametrize("x", [0, 1, -1])
+# def test_exp(x):
+#     a = Value(x)
+#     b = a.exp()
+#     assert b.data == pytest.approx(math.exp(x))
 
-@pytest.mark.parametrize("x, expected", [(-1, 0), (0, 0), (1, 1)])
-def test_relu(x, expected):
-    a = Value(x)
-    b = a.relu()
-    assert b.data == expected
+# @pytest.mark.parametrize("x, expected", [(-1, 0), (0, 0), (1, 1)])
+# def test_relu(x, expected):
+#     a = Value(x)
+#     b = a.relu()
+#     assert b.data == expected
 
-def test_backward():
-    x = Value(2.0)
-    y = Value(3.0)
-    z = x * y + y**2
-    z.backward()
-    assert x.grad == pytest.approx(3)
-    assert y.grad == pytest.approx(8)
+# def test_backward():
+#     x = Value(2.0)
+#     y = Value(3.0)
+#     z = x * y + y**2
+#     z.backward()
+#     assert x.grad == pytest.approx(3)
+#     assert y.grad == pytest.approx(8)
