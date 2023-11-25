@@ -1,7 +1,6 @@
 name: Type Annotations Check
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -23,5 +22,5 @@ jobs:
     - name: Install dependencies
       run: poetry install -E mypy
 
-    - name: Run MyPy
+    - name: Run mypy
       run: poetry run mypy
