@@ -5,5 +5,5 @@
 - [x] Add type annotations
 - [x] Port to poetry
 - [x] Add tests
-- [ ] Add GH action to run mypy
-- [ ] Add GH action to run tests
+- [x] Add GH action to run mypy
+- [x] Add GH action to run tests
