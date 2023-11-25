@@ -1,9 +1,27 @@
 import random
+from abc import ABC, abstractmethod
 
 from micrograd.value import Value
 
 
-class Neuron:
+class Module(ABC):
+    """
+    Base class for neural network entitites.
+
+    Provides single interface to reset gradients.
+    The same approach is in the PyTorch.
+    """
+
+    def zero_grad(self):
+        for p in self.parameters():
+            p.grad = 0.0
+
+    @abstractmethod
+    def parameters(self):
+        """Implements listing of parameters for Values."""
+
+
+class Neuron(Module):
     """Representation of a neuron with random of weights and bias."""
 
     def __init__(self, nin: int):  # number of inputs
@@ -23,7 +41,7 @@ class Neuron:
         return self.w + [self.b]
 
 
-class Layer:
+class Layer(Module):
     """Layer of neurons."""
 
     def __init__(self, nin, nout):
@@ -41,7 +59,7 @@ class Layer:
         return params
 
 
-class MLP:
+class MLP(Module):
     "Multilayer Perceptron."
 
     def __init__(self, nin, nouts):
