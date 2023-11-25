@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "nanograd"
+version = "0.1.0"
+description = ""
+authors = ["raisultan <ki.xbozz@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.1.0"
+numpy = "^1.26.1"
+
+mypy = { version = "^1.7.1", optional = true }
+
+matplotlib = { version = "^3.8.1", optional = true }
+graphviz = { version = "^0.20.1", optional = true }
+
+[tool.poetry.extras]
+mypy = ["mypy"]
+jupyter = ["matplotlib", "graphviz"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
